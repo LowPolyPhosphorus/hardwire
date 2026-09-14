@@ -10,13 +10,13 @@ const tiers = [
   {
     id: "T1",
     title: "Digital Logic",
-    description: "Design a small digital circuit and prove it works in simulation. No hardware experience required.",
+    description: "Design a small digital circuit and prove it works in simulation. No experience experience needed!",
     reward: "iCE40 FPGA Board",
   },
   {
     id: "T2",
     title: "ASIC Tapeout",
-    description: "Turn your circuit into a real chip design and send it to an actual chip factory. A few weeks later, a chip with your design on it comes back in the mail.",
+    description: "Turn your circuit into a real chip design and we send it to a factory to get the chip that you made manufactured sent back to you.",
     reward: "ASIC Shuttle Slot",
   },
   {
@@ -275,7 +275,7 @@ export default function LandingPage() {
 
               <div className="flex items-start justify-start md:justify-end">
                 <a
-                  href="mailto:hardwire@hackclub.com"
+                  href="mailto:notsponsoredyet:("
                   className="w-16 h-16 border-2 flex items-center justify-center transition-colors"
                   style={{ borderColor: "var(--fg)" }}
                   aria-label="Email"
