@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Hardwire — From logic to silicon",
-  description: "Design a chip. We manufacture it in a real fab and ship it back to you. A Hack Club YSWS, no hardware experience required.",
+  description: "Design a chip, get the chip that you made manufactured sent back to you. A program by Hack Club",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
