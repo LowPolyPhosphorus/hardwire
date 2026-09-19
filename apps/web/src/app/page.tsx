@@ -66,7 +66,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <a href="/resources" aria-label="Learn more">
+              <a href="/docs/" aria-label="Learn more">
                 <img src="/index-assets/smd-button.png" alt="" width={120} height={90} />
               </a>
               <div className="mt-2">
