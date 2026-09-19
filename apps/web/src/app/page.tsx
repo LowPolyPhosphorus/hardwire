@@ -4,29 +4,6 @@ import React from "react";
 import { Logo } from "@/components/logo";
 import { useTheme } from "@/components/theme-provider";
 
-const ACCENT = "#FF1500";
-
-const tiers = [
-  {
-    id: "T1",
-    title: "Digital Logic",
-    description: "Design a small digital circuit and prove it works in simulation. No experience experience needed!",
-    reward: "iCE40 FPGA Board",
-  },
-  {
-    id: "T2",
-    title: "ASIC Tapeout",
-    description: "Turn your circuit into a real chip design and we send it to a factory to get the chip that you made manufactured sent back to you.",
-    reward: "ASIC Shuttle Slot",
-  },
-  {
-    id: "T3",
-    title: "Custom Carrier Board",
-    description: "Design the circuit board that holds and powers your chip so it can actually be plugged in and used.",
-    reward: "PCB Fab & Test Components",
-  },
-];
-
 async function signInWithHackClub() {
   const res = await fetch("/api/auth/login?redirect=/dashboard");
   const data = await res.json();
@@ -67,119 +44,88 @@ export default function LandingPage() {
           </nav>
         </header>
 
-        <main className="flex-1">
-          {/* Hero */}
-          <section className="max-w-6xl mx-auto px-4 pt-16 pb-16 text-center">
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 border-2 text-xs font-medium uppercase tracking-widest mb-6"
-              style={{ borderColor: "var(--fg)" }}
-            >
-              Ages 13–18
-            </div>
-            <h1 className="font-display text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-4 lowercase">
-              logic to silicon
-              <span style={{ color: ACCENT }}>.</span>
-            </h1>
-            <p
-              className="text-lg font-medium max-w-2xl mx-auto mb-8"
-              style={{ color: "var(--muted)" }}
-            >
-              Design a chip. We send it to a real fab and mail you back the
-              finished part.
-            </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              <button
-                onClick={signInWithHackClub}
-                className="px-8 py-3 font-bold border-2 transition-colors"
-                style={{
-                  backgroundColor: "var(--fg)",
-                  color: "var(--bg)",
-                  borderColor: "var(--fg)",
-                }}
-              >
-                Get started
+        <main className="flex-1 flex flex-col items-center">
+          {/* 7-segment display */}
+          <div className="pt-6">
+            <img src="/index-assets/7seg.png" alt="" width={308} height={55} />
+          </div>
+
+          {/* OLED */}
+          <div className="mt-6">
+            <img src="/index-assets/oled.png" alt="" width={570} height={160} />
+          </div>
+
+          {/* Buttons row */}
+          <div className="mt-[30px] flex flex-row items-start gap-x-[144px]">
+            <div className="flex flex-col items-center">
+              <button onClick={signInWithHackClub} aria-label="Get started">
+                <img src="/index-assets/smd-button.png" alt="" width={120} height={90} />
               </button>
-              <a
-                href="/resources"
-                className="px-8 py-3 font-bold border-2 transition-colors inline-block"
-                style={{ borderColor: "var(--fg)" }}
-              >
-                Learn more
+              <div className="mt-2">
+                <img src="/index-assets/get-started.png" alt="Get started" width={111} height={16} />
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <a href="/resources" aria-label="Learn more">
+                <img src="/index-assets/smd-button.png" alt="" width={120} height={90} />
               </a>
+              <div className="mt-2">
+                <img src="/index-assets/learn-more.png" alt="Learn more" width={101} height={16} />
+              </div>
             </div>
-          </section>
+          </div>
 
-          {/* Tiers */}
-          <section className="max-w-6xl mx-auto px-4 py-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12 lowercase">
-              three steps. one real chip
-              <span style={{ color: ACCENT }}>.</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {tiers.map((tier) => (
-                <div
-                  key={tier.id}
-                  className="border-2 p-6 transition-colors"
-                  style={{ borderColor: "var(--fg)" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "var(--fg)";
-                    e.currentTarget.style.color = "var(--bg)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.color = "var(--fg)";
-                  }}
-                >
-                  <div
-                    className="w-10 h-10 border-2 mb-4 flex items-center justify-center text-sm font-bold"
-                    style={{ borderColor: "currentColor" }}
-                  >
-                    {tier.id}
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{tier.title}</h3>
-                  <p className="text-sm opacity-70 mb-4">
-                    {tier.description}
-                  </p>
-                  <div
-                    className="border-t-2 pt-4 mt-4"
-                    style={{ borderColor: "currentColor" }}
-                  >
-                    <span className="text-xs uppercase tracking-widest opacity-50">
-                      Reward
-                    </span>
-                    <p className="text-sm font-bold">{tier.reward}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* LCD */}
+          <div className="mt-6">
+            <img src="/index-assets/lcd.png" alt="" width={375} height={175} />
+          </div>
 
-          {/* Powered by Hack Club */}
-          <section className="max-w-3xl mx-auto px-4 py-16 text-center">
-            <h2 className="font-display text-3xl font-bold mb-6 lowercase">
-              built by hack club
-              <span style={{ color: ACCENT }}>.</span>
-            </h2>
-            <p className="mb-8" style={{ color: "var(--muted)" }}>
-              Hack Club is a 501(c)(3) nonprofit run by teenagers, for
-              teenagers. Hardwire is free because we think you shouldn&apos;t
-              have to pay to learn how hardware actually gets made.
-            </p>
-            <button
-              onClick={signInWithHackClub}
-              className="inline-block border-2 px-8 py-3 font-bold transition-colors"
-              style={{ borderColor: "var(--fg)" }}
-            >
-              Join the program
-            </button>
-          </section>
+          {/* T1 / T2 / T3 overlapping stack, T2 centered */}
+          <div
+            className="relative mt-[68px]"
+            style={{ width: "1049px", height: "320px", maxWidth: "100%" }}
+          >
+            <img
+              src="/index-assets/t3.png"
+              alt=""
+              width={363}
+              height={320}
+              className="absolute"
+              style={{ left: "686px", zIndex: 1 }}
+            />
+            <img
+              src="/index-assets/t2.png"
+              alt=""
+              width={363}
+              height={320}
+              className="absolute"
+              style={{ left: "343px", zIndex: 2 }}
+            />
+            <img
+              src="/index-assets/t1.png"
+              alt=""
+              width={363}
+              height={320}
+              className="absolute"
+              style={{ left: "0px", zIndex: 3 }}
+            />
+          </div>
+
+          {/* Full LCD */}
+          <div className="mt-[65px] pb-16">
+            <img src="/index-assets/full-lcd.png" alt="" width={445} height={330} />
+          </div>
         </main>
 
         <footer
-          className="border-t-2 pt-12 pb-8"
+          className="relative border-t-2 pt-12 pb-8 overflow-hidden"
           style={{ borderColor: "var(--fg)" }}
         >
-          <div className="max-w-6xl mx-auto px-4">
+          <div
+            className="absolute inset-0 z-0"
+            style={{ backgroundImage: "url('/index-assets/footer.png')", backgroundRepeat: "repeat", backgroundSize: "1920px 570px" }}
+          />
+          <div className="relative z-10 max-w-6xl mx-auto px-4">
             <p className="text-sm mb-2 flex items-center flex-wrap gap-x-2">
               <span>a project by</span>
               <a href="https://hackclub.com" className="underline hover:no-underline">
