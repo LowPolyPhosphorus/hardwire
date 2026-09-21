@@ -17,5 +17,3 @@ Design a chip. We send it to a real fab and mail you back the finished part.
 
 ## built by hack club.
 Free, because you shouldn't have to pay to learn how hardware actually gets made.
-
-Join the program — a project by [hack club](https://hackclub.com/)
